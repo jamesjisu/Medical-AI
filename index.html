@@ -7,7 +7,7 @@ title: Data Overview
 <h4>Where do FDA approved AI devices come from?</h4>
 <div id="map"></div>
 <h4>AI Devices by Specialty</h4>
-<div id="specialtyPieChart"></div>
+<div id="specialtyBarChart"></div>
 <h4>Which key terms indicate AI devices?</h4>
 <div id="keytermHeatMap"></div>
 <p>The YAML can be found in <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/tree/gh-pages/_data" target="_blank">_data/bar-chart.yaml</a>, but is transformed into the JSON needed for this chart, using <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/blob/gh-pages/data/bar-chart.json" target="_blank">/data/bar-chart.json</a>. You can fork the repo, and make work with your own data, and keep the YAML as the central, machine readable source. My objective is to decouple the data source from the visualiation, and leverage the readability of YAML + Jekyll + Github Pages for making data accessible.</p>
@@ -53,4 +53,18 @@ title: Data Overview
 <script>
 
     makeMapViz("map");
+    makeBarChart("specialtyBarChart")
+    var tooltip = d3.select('body')
+      .append("div")
+      .attr('id', 'tooltip')
+      .attr('data-html', 'true')
+      .style("position", "absolute")
+      .style("visibility", "hidden")
+      .style('background-color', '#f0f0f0')
+      .style('padding', '5px 5px 5px 5px')
+      .style('font-size', function () {
+          return '20px'
+      })
+      .style('border-radius', '4px')
+      .text("HELLLO");
 </script>

@@ -18,6 +18,8 @@ function makeMapViz(divID) {
         .translate([mapWidth / 2, mapHeight / 3]);
     
     const path = d3.geoPath().projection(projection);
+
+    var totalScale = d3.scaleLinear().domain([0,Math.log10(113)]).range(['grey', 'blue']);
     
     d3.json("/data/maps.json", function(error, uWorld) {
     if (error) throw error;
@@ -27,7 +29,41 @@ function makeMapViz(divID) {
             .append('path')
             .attr("d", path)
             .attr('class', 'state')
+            .style("fill", function(d) {
+                if(d.properties.hasOwnProperty("devices")) {
+                    return totalScale(Math.log10(d["properties"]["devices"][9]+1));
+                }
+                else {
+                    return totalScale(0); 
+                }
+            })
+            .on("mouseover", onMouseOver)
+            .on("mousemove", onMouseMove)
+            .on("mouseout", onMouseOut)
     });
+
+}
+
+// Make Specialties Bar Chart
+function makeBarChart(divID) {
+    var width = document.getElementById("map").clientWidth;
+    var height = mapWidth / 1.6;
+
+    var margin = 50;
+
+    var xScale = d3.scaleBand()
+        .range([margin, width - margin])
+    
+
+    var svg = d3.select(divID)
+        .append('svg')
+        .attr("width", width)
+        .attr("height", height);
+
+    d3.json('/data/specialties_jiang.json', function(error, specialties) {
+        if (error) {throw error;}
+        console.log(specialties)
+    })
 
 }
 
@@ -147,4 +183,34 @@ function makePieChart(divID) {
     if (divID == 'enlargedChart') {
         window.SVG = svg;
     }
+}
+
+
+
+function onMouseOver(d, i) {
+    var elementClass = this.getAttribute('class');
+    console.log(d)
+
+    if(d.properties.hasOwnProperty("devices")) {
+        deviceVec = d["properties"]["devices"];
+        tooltip.style('visibility', 'visible');
+        tooltip.html(d["properties"]["name"] + "<br />" + 
+            "FDA: " + d["properties"]["devices"][0] + "<br />" + 
+            "Jiang et al: " + d["properties"]["devices"][1])
+        tooltip.style('background-color', '#f0f0f0');
+    }
+    else{
+        console.log('no data')
+    }
+    d3.select(this).style('opacity', '80%')
+}
+
+function onMouseMove(d, i) {
+    var elementClass = this.getAttribute('class');
+    return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+}
+
+function onMouseOut(d, i) {
+    tooltip.style('visibility', 'hidden');
+    d3.select(this).style('opacity', '100%')
 }
