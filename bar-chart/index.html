@@ -1,0 +1,56 @@
+---
+layout: default
+title: Data Overview
+---
+
+<h3>Data Overview</h3>
+<h4>Where do FDA approved AI devices come from?</h4>
+<div id="map"></div>
+<h4>AI Devices by Specialty</h4>
+<div id="specialtyPieChart"></div>
+<h4>Which key terms indicate AI devices?</h4>
+<div id="keytermHeatMap"></div>
+<p>The YAML can be found in <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/tree/gh-pages/_data" target="_blank">_data/bar-chart.yaml</a>, but is transformed into the JSON needed for this chart, using <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/blob/gh-pages/data/bar-chart.json" target="_blank">/data/bar-chart.json</a>. You can fork the repo, and make work with your own data, and keep the YAML as the central, machine readable source. My objective is to decouple the data source from the visualiation, and leverage the readability of YAML + Jekyll + Github Pages for making data accessible.</p>
+<style>
+
+/* Bar Chart */
+
+.bar {
+  fill: steelblue;
+}
+
+.state {
+    stroke-width: 1;
+    stroke: #aaa;
+}
+.state:hover {
+  fill: rgb(163, 180, 185);
+}
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 12px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #aaa;
+  shape-rendering: crispEdges;
+}
+.axis text{
+    fill: #aaa
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+
+<script>
+
+    makeMapViz("map");
+</script>
