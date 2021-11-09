@@ -1,11 +1,11 @@
-{
-    "Missing": 2,
-    "Clinical Chemistry": 1,
-    "Cardiovascular": 22,
-    "Hematology": 9,
-    "Microbiology": 3,
-    "Neurology": 6,
-    "Ophthalmic": 4,
-    "Radiology": 161,
-    "Clinical Toxicology": 1
-}
+[
+    {"specialty": "Missing", "number": 2},
+    {"specialty": "Clinical Chemistry", "number": 1},
+    {"specialty": "Cardiovascular", "number": 22},
+    {"specialty": "Hematology", "number": 9},
+    {"specialty": "Microbiology", "number": 3},
+    {"specialty": "Neurology", "number": 6},
+    {"specialty": "Ophthalmic", "number": 4},
+    {"specialty": "Radiology", "number": 161},
+    {"specialty": "Clinical Toxicology", "number": 1}
+]

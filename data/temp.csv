@@ -1,0 +1,129 @@
+group,variable,value
+FDA,Machine Learning,59
+Jiang et al,Machine Learning,52
+510K,Machine Learning,58
+DEN,Machine Learning,3
+PMA,Machine Learning,0
+No Clinical Study,Machine Learning,32
+Clinical Study,Machine Learning,29
+Total,Machine Learning,61
+FDA,Neural Network,40
+Jiang et al,Neural Network,34
+510K,Neural Network,40
+DEN,Neural Network,0
+PMA,Neural Network,1
+No Clinical Study,Neural Network,17
+Clinical Study,Neural Network,24
+Total,Neural Network,41
+FDA,Neural Networks,20
+Jiang et al,Neural Networks,12
+510K,Neural Networks,19
+DEN,Neural Networks,0
+PMA,Neural Networks,1
+No Clinical Study,Neural Networks,5
+Clinical Study,Neural Networks,15
+Total,Neural Networks,20
+FDA,Deep Learning,63
+Jiang et al,Deep Learning,60
+510K,Deep Learning,64
+DEN,Deep Learning,2
+PMA,Deep Learning,0
+No Clinical Study,Deep Learning,24
+Clinical Study,Deep Learning,42
+Total,Deep Learning,66
+FDA,Reinforcement Learning,0
+Jiang et al,Reinforcement Learning,0
+510K,Reinforcement Learning,0
+DEN,Reinforcement Learning,0
+PMA,Reinforcement Learning,0
+No Clinical Study,Reinforcement Learning,0
+Clinical Study,Reinforcement Learning,0
+Total,Reinforcement Learning,0
+FDA,Natural Language Processing,0
+Jiang et al,Natural Language Processing,0
+510K,Natural Language Processing,0
+DEN,Natural Language Processing,0
+PMA,Natural Language Processing,0
+No Clinical Study,Natural Language Processing,0
+Clinical Study,Natural Language Processing,0
+Total,Natural Language Processing,0
+FDA,Decision Tree,1
+Jiang et al,Decision Tree,1
+510K,Decision Tree,1
+DEN,Decision Tree,0
+PMA,Decision Tree,0
+No Clinical Study,Decision Tree,0
+Clinical Study,Decision Tree,1
+Total,Decision Tree,1
+FDA,xgboost,0
+Jiang et al,xgboost,0
+510K,xgboost,0
+DEN,xgboost,0
+PMA,xgboost,0
+No Clinical Study,xgboost,0
+Clinical Study,xgboost,0
+Total,xgboost,0
+FDA,Gradient Boosted,0
+Jiang et al,Gradient Boosted,0
+510K,Gradient Boosted,0
+DEN,Gradient Boosted,0
+PMA,Gradient Boosted,0
+No Clinical Study,Gradient Boosted,0
+Clinical Study,Gradient Boosted,0
+Total,Gradient Boosted,0
+FDA,Gradient Boosting,0
+Jiang et al,Gradient Boosting,0
+510K,Gradient Boosting,0
+DEN,Gradient Boosting,0
+PMA,Gradient Boosting,0
+No Clinical Study,Gradient Boosting,0
+Clinical Study,Gradient Boosting,0
+Total,Gradient Boosting,0
+FDA,Ensemble,3
+Jiang et al,Ensemble,2
+510K,Ensemble,3
+DEN,Ensemble,0
+PMA,Ensemble,0
+No Clinical Study,Ensemble,1
+Clinical Study,Ensemble,2
+Total,Ensemble,3
+FDA,Big Data,0
+Jiang et al,Big Data,0
+510K,Big Data,0
+DEN,Big Data,0
+PMA,Big Data,0
+No Clinical Study,Big Data,0
+Clinical Study,Big Data,0
+Total,Big Data,0
+FDA,DNN,3
+Jiang et al,DNN,3
+510K,DNN,3
+DEN,DNN,0
+PMA,DNN,0
+No Clinical Study,DNN,0
+Clinical Study,DNN,3
+Total,DNN,3
+FDA,CNN,12
+Jiang et al,CNN,11
+510K,CNN,13
+DEN,CNN,0
+PMA,CNN,0
+No Clinical Study,CNN,3
+Clinical Study,CNN,10
+Total,CNN,13
+FDA,RNN,0
+Jiang et al,RNN,0
+510K,RNN,0
+DEN,RNN,0
+PMA,RNN,0
+No Clinical Study,RNN,0
+Clinical Study,RNN,0
+Total,RNN,0
+FDA,NLP,0
+Jiang et al,NLP,0
+510K,NLP,0
+DEN,NLP,0
+PMA,NLP,0
+No Clinical Study,NLP,0
+Clinical Study,NLP,0
+Total,NLP,0

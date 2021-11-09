@@ -1,7 +1,7 @@
 // Making the Map
 function makeMapViz(divID) {
     var mapWidth = document.getElementById("map").clientWidth;
-    var mapHeight = mapWidth * 0.785714;
+    var mapHeight = mapWidth * 0.65;
     const mapSVG = d3.select("#" + divID).append("svg")
         .attr("width", mapWidth)
         .attr("height", mapHeight);
@@ -14,12 +14,12 @@ function makeMapViz(divID) {
         .translate([mapWidth / 2, mapHeight / 2]) // translate to center of screen
         .scale(mapWidth / 1.5 / Math.PI) // scale things down so see entire US            
         .rotate([0, 0]) 
-        .center([0, 0]) 
+        .center([0, 25]) 
         .translate([mapWidth / 2, mapHeight / 3]);
     
     const path = d3.geoPath().projection(projection);
 
-    var totalScale = d3.scaleLinear().domain([0,Math.log10(113)]).range(['grey', 'blue']);
+    var totalScale = d3.scaleLinear().domain([0,Math.log10(113)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
     
     d3.json("/data/maps.json", function(error, uWorld) {
     if (error) throw error;
@@ -47,23 +47,52 @@ function makeMapViz(divID) {
 // Make Specialties Bar Chart
 function makeBarChart(divID) {
     var width = document.getElementById("map").clientWidth;
-    var height = mapWidth / 1.6;
+    var height = width / 1.6;
 
-    var margin = 50;
+    var padding = 50;
 
     var xScale = d3.scaleBand()
-        .range([margin, width - margin])
+        .range([padding, width - padding])
+        .padding(0.2)
+
+    var yScale = d3.scaleLinear().range([height - padding, padding])
     
 
-    var svg = d3.select(divID)
-        .append('svg')
+    var svg = d3.select('#' + divID).append('svg')
         .attr("width", width)
         .attr("height", height);
 
-    d3.json('/data/specialties_jiang.json', function(error, specialties) {
+    d3.json('/data/specialties_jiang.json', function(error, data) {
         if (error) {throw error;}
-        console.log(specialties)
+
+        console.log(data)
+        xScale.domain(data.map(function(d) {return d.specialty}))
+        yScale.domain([0,d3.max(data, function(d) {return d.number})])
+
+        svg.append('g')
+            .attr("transform", "translate(0," + (height - padding) + ")")
+            .attr("class", "axis")
+            .call(d3.axisBottom(xScale))
+
+        
+        svg.append('g')
+            .attr("transform", "translate(" + padding + ",0)")
+            .attr("class", "axis")
+            .call(d3.axisLeft(yScale))
+
+        svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return xScale(d.specialty)})
+            .attr("y", function(d) { return yScale(d.number)})
+            .attr("width", xScale.bandwidth())
+            .attr("height", function(d) { return height - padding - yScale(d.number)})
+            .on("mouseover", onMouseOver)
+            .on("mousemove", onMouseMove)
+            .on("mouseout", onMouseOut)
     })
+
 
 }
 
@@ -185,24 +214,80 @@ function makePieChart(divID) {
     }
 }
 
+// Make Heat Map
+function makeHeatMap(divID) {
+    var width = document.getElementById("map").clientWidth;
+    var height = width / 1.6;
+    var margin = 150;
+
+    var svg = d3.select("#" + divID).append("svg")
+        .attr("width", width + 2*margin)
+        .attr("height", height + 2*margin)
+    
+        var terms = ["Artificial Intelligence","Machine Learning","Neural Network","Neural Networks","Deep Learning","Reinforcement Learning","Natural Language Processing","Decision Tree","xgboost","Gradient Boosted","Gradient Boosting","Ensemble","Big Data","DNN","CNN","RNN","NLP"]
+        var groups = ["FDA", "Jiang et al", "510K", "DEN", "PMA", "No Clinical Study", "Clinical Study", "Total"]
+
+        var xScale = d3.scaleBand()
+            .range([margin, width - margin])
+            .domain(terms)
+            .padding(0.01);
+        svg.append('g')
+            .attr("transform", "translate(0," + (margin) + ")")
+            .call(d3.axisTop(xScale))
+            .attr('class', 'axis')
+
+        var yScale = d3.scaleBand()
+            .range([margin, height - margin])
+            .domain(groups)
+            .padding(0.01);
+        svg.append('g')
+            .attr("transform", "translate(" + (margin) + ",0)")
+            .call(d3.axisLeft(yScale))
+            .attr('class', 'axis')
+
+    var colorScale = d3.scaleLinear()
+        .domain([0,209])
+        .range(['black', 'blue']);
+
+    d3.csv('/data/temp.csv', function(data) {
+        svg.selectAll()
+            .data(data, function(d) { return d.group + ': ' + d.variable;})
+            .enter()
+            .append('rect')
+            .attr("x", function(d) { console.log(xScale(d.group)); return xScale(d.variable) })
+            .attr("y", function(d) { return yScale(d.group) })
+            .attr("width", xScale.bandwidth() )
+            .attr("height", yScale.bandwidth() )
+            .style("fill", function(d) { return colorScale(d.value)})
+    })
+
+    
+        
+}
+
 
 
 function onMouseOver(d, i) {
     var elementClass = this.getAttribute('class');
+    console.log(elementClass);
     console.log(d)
+    tooltip.style('visibility', 'visible');
 
-    if(d.properties.hasOwnProperty("devices")) {
-        deviceVec = d["properties"]["devices"];
-        tooltip.style('visibility', 'visible');
-        tooltip.html(d["properties"]["name"] + "<br />" + 
-            "FDA: " + d["properties"]["devices"][0] + "<br />" + 
-            "Jiang et al: " + d["properties"]["devices"][1])
-        tooltip.style('background-color', '#f0f0f0');
+    if (elementClass == "state") {
+        if(d.properties.hasOwnProperty("devices")) {
+            deviceVec = d["properties"]["devices"];
+            tooltip.html(d["properties"]["name"] + "<br />" + 
+                "FDA: " + d["properties"]["devices"][0] + "<br />" + 
+                "Jiang et al: " + d["properties"]["devices"][1])
+        }
+        else{
+            console.log('no data')
+        }
+        d3.select(this).style('opacity', '80%')
     }
-    else{
-        console.log('no data')
+    else if (elementClass == "bar") {
+        tooltip.html(d.specialty + ": " + d.number)
     }
-    d3.select(this).style('opacity', '80%')
 }
 
 function onMouseMove(d, i) {

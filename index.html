@@ -16,7 +16,10 @@ title: Data Overview
 /* Bar Chart */
 
 .bar {
-  fill: steelblue;
+  fill: rgb(146, 150, 153);
+}
+.bar {
+  fill: rgb(56, 112, 158);
 }
 
 .state {
@@ -27,7 +30,7 @@ title: Data Overview
   fill: rgb(163, 180, 185);
 }
 .bar:hover {
-  fill: brown;
+  fill: rgb(197, 197, 197);
 }
 
 .axis {
@@ -54,6 +57,7 @@ title: Data Overview
 
     makeMapViz("map");
     makeBarChart("specialtyBarChart")
+    makeHeatMap("keytermHeatMap")
     var tooltip = d3.select('body')
       .append("div")
       .attr('id', 'tooltip')
