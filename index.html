@@ -4,8 +4,11 @@ title: Data Overview
 ---
 
 <h3>Data Overview</h3>
+<h4>Timeline of FDA AI Device Approvals</h4>
+<div id="timelineViz"></div>
 <h4>Where do FDA approved AI devices come from?</h4>
-<div id="map"></div>
+<div id="worldMap"></div>
+<div id="usMap"></div>
 <h4>AI Devices by Specialty</h4>
 <div id="specialtyBarChart"></div>
 <h4>Which key terms indicate AI devices?</h4>
@@ -55,20 +58,22 @@ title: Data Overview
 
 <script>
 
-    makeMapViz("map");
-    makeBarChart("specialtyBarChart")
-    makeHeatMap("keytermHeatMap")
-    var tooltip = d3.select('body')
-      .append("div")
-      .attr('id', 'tooltip')
-      .attr('data-html', 'true')
-      .style("position", "absolute")
-      .style("visibility", "hidden")
-      .style('background-color', '#f0f0f0')
-      .style('padding', '5px 5px 5px 5px')
-      .style('font-size', function () {
-          return '20px'
-      })
-      .style('border-radius', '4px')
-      .text("HELLLO");
+  makeWorldMapViz("worldMap");
+  makeTimelineViz("timelineViz");
+  // makeUSMapViz("usMap");
+  // makeBarChart("specialtyBarChart")
+  // makeHeatMap("keytermHeatMap")
+  var tooltip = d3.select('body')
+    .append("div")
+    .attr('id', 'tooltip')
+    .attr('data-html', 'true')
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .style('background-color', '#f0f0f0')
+    .style('padding', '5px 5px 5px 5px')
+    .style('font-size', function () {
+        return '20px'
+    })
+    .style('border-radius', '4px')
+    .text("HELLLO");
 </script>

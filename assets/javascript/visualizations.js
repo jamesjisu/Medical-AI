@@ -1,6 +1,11 @@
-// Making the Map
-function makeMapViz(divID) {
-    var mapWidth = document.getElementById("map").clientWidth;
+// Making Teimeline
+function makeTimelineViz(divID) {
+    console.log('hi')
+}
+
+// Making the World Map
+function makeWorldMapViz(divID) {
+    var mapWidth = document.getElementById(divID).clientWidth;
     var mapHeight = mapWidth * 0.65;
     const mapSVG = d3.select("#" + divID).append("svg")
         .attr("width", mapWidth)
@@ -42,6 +47,11 @@ function makeMapViz(divID) {
             .on("mouseout", onMouseOut)
     });
 
+}
+
+// Making US Map
+function makeUSMap(divID) {
+    
 }
 
 // Make Specialties Bar Chart
