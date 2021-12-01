@@ -1,6 +1,318 @@
-// Making Teimeline
+// Making Timeline
 function makeTimelineViz(divID) {
-    console.log('hi')
+    var width = document.getElementById(divID).clientWidth;
+    var height = width / 1.6;
+
+    var padding = 50;
+
+    var xScale = d3.scaleTime()
+        .range([padding, width - padding])
+
+    var yScale = d3.scaleLinear()
+        .domain([-0.1,1.1])
+        .range([height - padding, padding])
+
+    var INNER_WIDTH = width - 2 * padding;
+    var INNER_HEIGHT = height - 2 * padding;
+
+    var svg = d3.select('#' + divID).append('svg')
+        .attr("width", width)
+        .attr("height", height);
+
+
+
+    d3.csv('/data/timeline_data.csv', function(error, data) {
+        if (error) {throw error};
+        var yvals = [];
+        for (i = 0; i < data.length; i++) {
+            yvals.push(Math.random());
+        }
+
+        var zoomBeh = d3.zoom()
+            .extent([[padding, padding], [padding + INNER_WIDTH, padding + INNER_HEIGHT]])
+            .scaleExtent([1, 500])
+            .translateExtent([[padding, padding], [padding + INNER_WIDTH, padding + INNER_HEIGHT]])
+            .on("zoom", zoom);
+
+        svg.call(zoomBeh);
+
+        console.log(data);
+
+        xScale.domain(d3.extent(data, function(d){
+            return new Date(d.Date);
+        }))
+
+        var xAxis = d3.axisBottom()
+            .ticks(20)
+            .scale(xScale)
+        
+        var gX = svg.append('g')
+            .attr('transform', 'translate(0,' + (height - padding) + ')')
+            .attr('class', 'axis')
+            .call(xAxis)
+
+        var symbol = d3.symbol();
+
+        var dots = svg.selectAll('.dots')
+            .data(data)
+            .enter()
+            .append("path")
+            .attr('class', 'deviceSpecialty')
+            .attr("d", symbol.type(function(d) {
+                if (d.Specialty == 'Radiology') {return d3.symbolSquare}
+                else if (d.Specialty == 'Cardiovascular') {return d3.symbolTriangle}
+                else if (d.Specialty == 'Other') {return d3.symbolStar}
+            }))
+            .attr('transform', function(d, i) {
+                var x = xScale(new Date(d.Date));
+                var y = yScale(yvals[i]);
+                return "translate(" + x + ',' + y + ')' 
+            })
+            .attr('fill', function(d) {
+                if (d.path == '510K') {return "rgb(56, 112, 158)"}
+                else if (d.path == 'DEN') {return "rgb(187, 64, 64)"}
+                else if (d.path == 'PMA') {return "rgb(68, 187, 64)"}
+            })
+            .on("mouseover", onMouseOver)
+            .on("mousemove", onMouseMove)
+            .on("mouseout", onMouseOut)
+
+        function zoom() {
+                console.log('zoom')
+                xScale.range([padding, padding + INNER_WIDTH].map(d => d3.event.transform.applyX(d)));
+                gX.call(xAxis.scale(xScale))
+
+                dots.attr('transform', function(d, i) {
+                    // console.log(d)
+                    var x = xScale(new Date(d.Date));
+                    var y = yScale(yvals[i]);
+                    return "translate(" + x + ',' + y + ')' 
+                })
+            }
+        
+        var legend = svg.append('g')
+            .attr('id', 'timelineLegend')
+            .attr('width', (width / 2) + 'px')
+            .attr('height', '30px');
+
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolSquare))
+            .attr('transform', 'translate(30,' + (2 * padding) / 3 + ')')
+            .style('fill', "rgb(146, 150, 153)")
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolTriangle))
+            .attr('transform', 'translate(30,' + 2* (2 * padding) / 3 + ')')
+            .style('fill', "rgb(146, 150, 153)")
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolStar))
+            .attr('transform', 'translate(30,' + (2 * padding) + ')')
+            .style('fill', "rgb(146, 150, 153)")
+
+        legend.append('text')
+            .attr('transform', 'translate(45,' + ((2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Radiology');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + (2* (2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Cardiovascular');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + ((2 * padding) + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Other');
+    
+    })
+
+}
+
+// Making Timeline for Binning
+function makeTimelineBinViz(divID, bintype, maxHeight) {
+    var width = document.getElementById(divID).clientWidth;
+    var height = width / 1.6;
+
+    var padding = 50;
+
+    var xScale = d3.scaleTime()
+        .range([padding, width - padding])
+
+    var yScale = d3.scaleLinear()
+        .domain([-0.5, maxHeight + 0.5])
+        .range([height - padding, padding])
+
+    var INNER_WIDTH = width - 2 * padding;
+    var INNER_HEIGHT = height - 2 * padding;
+
+    var svg = d3.select('#' + divID).append('svg')
+        .attr("width", width)
+        .attr("height", height);
+
+
+
+    d3.csv('/data/timeline_' + bintype + '_data.csv', function(error, data) {
+        if (error) {throw error};
+        var yvals = [];
+        for (i = 0; i < data.length; i++) {
+            yvals.push(Math.random());
+        }
+
+        var zoomBeh = d3.zoom()
+            .extent([[padding, padding], [padding + INNER_WIDTH, padding + INNER_HEIGHT]])
+            .scaleExtent([1, 500])
+            .translateExtent([[padding, padding], [padding + INNER_WIDTH, padding + INNER_HEIGHT]])
+            .on("zoom", zoom);
+
+        svg.call(zoomBeh);
+
+        console.log(data);
+
+        xScale.domain(d3.extent(data, function(d){
+            return new Date(d.Date);
+        }))
+
+        var xAxis = d3.axisBottom()
+            .ticks(20)
+            .scale(xScale)
+        
+        var gX = svg.append('g')
+            .attr('transform', 'translate(0,' + (height - padding) + ')')
+            .attr('class', 'axis')
+            .call(xAxis)
+
+        var symbol = d3.symbol().size("90");
+
+        var dots = svg.selectAll('.dots')
+            .data(data)
+            .enter()
+            .append("path")
+            .attr('class', 'deviceSpecialty')
+            .attr("d", symbol.type(function(d) {
+                if (d.Specialty == 'Radiology') {return d3.symbolSquare}
+                else if (d.Specialty == 'Cardiovascular') {return d3.symbolTriangle}
+                else if (d.Specialty == 'Other') {return d3.symbolStar}
+            }))
+            .attr('transform', function(d, i) {
+                var x = xScale(new Date(d.Date));
+                var y = yScale(d.height);
+                return "translate(" + x + ',' + y + ')' 
+            })
+            .attr('fill', function(d) {
+                if (d.path == '510K') {return "rgb(56, 112, 158)"}
+                else if (d.path == 'DEN') {return "rgb(187, 64, 64)"}
+                else if (d.path == 'PMA') {return "rgb(68, 187, 64)"}
+            })
+            .on("mouseover", onMouseOver)
+            .on("mousemove", onMouseMove)
+            .on("mouseout", onMouseOut)
+
+        function zoom() {
+                console.log('zoom')
+                xScale.range([padding, padding + INNER_WIDTH].map(d => d3.event.transform.applyX(d)));
+                gX.call(xAxis.ticks(20).scale(xScale))
+
+                dots.attr('transform', function(d, i) {
+                    // console.log(d)
+                    var x = xScale(new Date(d.Date));
+                    var y = yScale(d.height);
+                    return "translate(" + x + ',' + y + ')' 
+                })
+            }
+        
+        var legend = svg.append('g')
+            .attr('id', 'timelineLegend')
+            .attr('width', (width / 2) + 'px')
+            .attr('height', '30px');
+
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolSquare))
+            .attr('transform', 'translate(30,' + (2 * padding) / 3 + ')')
+            .style('fill', "rgb(146, 150, 153)")
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolTriangle))
+            .attr('transform', 'translate(30,' + 2* (2 * padding) / 3 + ')')
+            .style('fill', "rgb(146, 150, 153)")
+        legend.append("path")
+            .attr("d", symbol.type(d3.symbolStar))
+            .attr('transform', 'translate(30,' + (2 * padding) + ')')
+            .style('fill', "rgb(146, 150, 153)")
+
+
+        // legend.append("path")
+        //     .attr("d", symbol.type(d3.symbolSquare))
+        //     .attr('transform', 'translate(30,' + (2 * padding) / 3 + ')')
+        //     .style('fill', "rgb(0,0,0)")
+        // legend.append("path")
+        //     .attr("d", symbol.type(d3.symbolTriangle))
+        //     .attr('transform', 'translate(30,' + 2* (2 * padding) / 3 + ')')
+        //     .style('fill', "rgb(0,0,0)")
+        // legend.append("path")
+        //     .attr("d", symbol.type(d3.symbolStar))
+        //     .attr('transform', 'translate(30,' + (2 * padding) + ')')
+        //     .style('fill', "rgb(0,0,0)")
+
+
+        legend.append('text')
+            .attr('transform', 'translate(45,' + ((2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Radiology');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + (2* (2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Cardiovascular');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + ((2 * padding) + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('class', 'label')
+            .attr('fill', '#aaa')
+            .text('Other');
+
+        legend.append('text')
+            .attr('transform', 'translate(45,' + (4*(2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('fill', 'rgb(56, 112, 158)')
+            .text('510K');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + (5* (2 * padding) / 3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('fill', 'rgb(187, 64, 64)')
+            .text('De Novo');
+    
+        legend.append('text')
+            .attr('transform', 'translate(45,' + (6*(2 * padding)/3 + 0.3*padding/3) + ')')
+            .attr('alignment-baseline', 'middle')
+            .attr('text-anchor', 'left')
+            .attr('fill', 'rgb(68, 187, 64)')
+            .text('PMA');
+
+    })
+
+}
+
+// Making Timeline Bar
+function makeTimelineBarViz(divID) {
+    //for(var i = 0; i < )
 }
 
 // Making the World Map
@@ -15,7 +327,7 @@ function makeWorldMapViz(divID) {
     var mapScale = d3.scaleLinear()
         .domain([])
 
-    const projection = d3.geoNaturalEarth()
+    var projection = d3.geoNaturalEarth()
         .translate([mapWidth / 2, mapHeight / 2]) // translate to center of screen
         .scale(mapWidth / 1.5 / Math.PI) // scale things down so see entire US            
         .rotate([0, 0]) 
@@ -33,7 +345,7 @@ function makeWorldMapViz(divID) {
             .enter()
             .append('path')
             .attr("d", path)
-            .attr('class', 'state')
+            .attr('class', 'country')
             .style("fill", function(d) {
                 if(d.properties.hasOwnProperty("devices")) {
                     return totalScale(Math.log10(d["properties"]["devices"][9]+1));
@@ -51,12 +363,48 @@ function makeWorldMapViz(divID) {
 
 // Making US Map
 function makeUSMap(divID) {
-    
+    var mapWidth = document.getElementById(divID).clientWidth;
+    var mapHeight = mapWidth * 0.65;
+    var svg = d3.select("#" + divID).append("svg")
+        .attr("width", mapWidth)
+        .attr("height", mapHeight);
+
+    var projection = d3.geoAlbersUsa()
+        .translate([mapWidth / 2, mapHeight / 2]) // translate to center of screen
+        .scale([1000]); // scale things down so see entire US
+
+    var path = d3.geoPath().projection(projection);
+
+    var totalScale = d3.scaleLinear().domain([0,Math.log10(29)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
+ 
+    d3.json('/data/map_US.json', function(error, uState) {
+        if (error) throw error;
+            svg.selectAll('path')
+                .data(uState.features)
+                .enter()
+                .append('path')
+                .attr("d", path)
+                .attr('class', 'state')
+                .style("fill", function(d) {
+                    if(d.properties.hasOwnProperty("devices")) {
+                        return totalScale(Math.log10(d["properties"]["devices"][9]+1));
+                    }
+                    else {
+                        return totalScale(0); 
+                    }
+                })
+                .on("mouseover", onMouseOver)
+                .on("mousemove", onMouseMove)
+                .on("mouseout", onMouseOut)
+        });
+
+
+        
 }
 
 // Make Specialties Bar Chart
 function makeBarChart(divID) {
-    var width = document.getElementById("map").clientWidth;
+    var width = document.getElementById(divID).clientWidth;
     var height = width / 1.6;
 
     var padding = 50;
@@ -226,7 +574,7 @@ function makePieChart(divID) {
 
 // Make Heat Map
 function makeHeatMap(divID) {
-    var width = document.getElementById("map").clientWidth;
+    var width = document.getElementById("keytermHeatMap").clientWidth;
     var height = width / 1.6;
     var margin = 150;
 
@@ -283,7 +631,7 @@ function onMouseOver(d, i) {
     console.log(d)
     tooltip.style('visibility', 'visible');
 
-    if (elementClass == "state") {
+    if (elementClass == "country") {
         if(d.properties.hasOwnProperty("devices")) {
             deviceVec = d["properties"]["devices"];
             tooltip.html(d["properties"]["name"] + "<br />" + 
@@ -291,12 +639,24 @@ function onMouseOver(d, i) {
                 "Jiang et al: " + d["properties"]["devices"][1])
         }
         else{
+            tooltip.html(d["properties"]["name"] + "<br />None" )
+        }
+        d3.select(this).style('opacity', '80%')
+    } 
+    else if (elementClass == "state") {
+        if(d.properties.hasOwnProperty("devices")) {
+            console.log('hi')
+        }
+        else{
             console.log('no data')
         }
         d3.select(this).style('opacity', '80%')
-    }
+    } 
     else if (elementClass == "bar") {
         tooltip.html(d.specialty + ": " + d.number)
+    }
+    else if (elementClass == 'deviceSpecialty') {
+        tooltip.html(d.Name)
     }
 }
 
