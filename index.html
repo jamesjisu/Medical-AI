@@ -6,8 +6,12 @@ title: Data Overview
 <h3>Data Overview</h3>
 <h4>Timeline of FDA AI Device Approvals</h4>
 <div id="timelineViz"></div>
+<div id="timelineQuarterViz"></div>
+<div id="timelineMonthViz"></div>
 <h4>Where do FDA approved AI devices come from?</h4>
+<h5>Internationally</h5>
 <div id="worldMap"></div>
+<h5>Domestically</h5>
 <div id="usMap"></div>
 <h4>AI Devices by Specialty</h4>
 <div id="specialtyBarChart"></div>
@@ -24,6 +28,21 @@ title: Data Overview
 .bar {
   fill: rgb(56, 112, 158);
 }
+.bartest {
+  fill: rgb(68, 187, 64);
+}
+
+.deviceSpecialty:hover {
+  opacity: 0.5;
+}
+
+.country {
+    stroke-width: 1;
+    stroke: #aaa;
+}
+.country:hover {
+  fill: rgb(163, 180, 185);
+}
 
 .state {
     stroke-width: 1;
@@ -32,12 +51,19 @@ title: Data Overview
 .state:hover {
   fill: rgb(163, 180, 185);
 }
+
+
 .bar:hover {
   fill: rgb(197, 197, 197);
 }
 
 .axis {
   font: 12px sans-serif;
+}
+
+.label {
+  font: 18px sans-serif;
+  fill: #aaa
 }
 
 .axis path,
@@ -50,6 +76,21 @@ title: Data Overview
     fill: #aaa
 }
 
+/* .label {
+  font: 18px sans-serif;
+  fill: rgb(0, 0, 0)
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: rgb(0, 0, 0);
+  shape-rendering: crispEdges;
+}
+.axis text{
+    fill: rgb(0, 0, 0)
+} */
+
 .x.axis path {
   display: none;
 }
@@ -58,11 +99,13 @@ title: Data Overview
 
 <script>
 
-  makeWorldMapViz("worldMap");
   makeTimelineViz("timelineViz");
-  // makeUSMapViz("usMap");
+  makeTimelineBinViz("timelineQuarterViz", 'quarter', 25);
+  makeTimelineBinViz("timelineMonthViz", 'month', 9);
+  makeWorldMapViz("worldMap");
+  makeUSMap("usMap");
   // makeBarChart("specialtyBarChart")
-  // makeHeatMap("keytermHeatMap")
+  makeHeatMap("keytermHeatMap")
   var tooltip = d3.select('body')
     .append("div")
     .attr('id', 'tooltip')

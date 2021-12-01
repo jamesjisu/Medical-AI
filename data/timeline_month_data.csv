@@ -1,0 +1,210 @@
+,Date,Name,Specialty,path,height
+174,12/15/2020,HepaFat-AI,Radiology,510K,0.0
+183,12/15/2020,EchoGo Pro,Radiology,510K,1.0
+185,12/15/2020,Deep Learning Image Reconstruction for Gemstone Spectral Imaging,Radiology,510K,2.0
+195,12/15/2020,HealthJOINT,Radiology,510K,3.0
+199,12/15/2020,Aquilion Exceed LB (TSX-202A/3) V10.6 with AiCE-I,Radiology,510K,4.0
+204,12/15/2020,BriefCase,Radiology,510K,5.0
+6,11/15/2013,MALDI Biotyper CA (MBT-CA) System,Other,510K,0.0
+3,05/15/2010,EasyCell,Other,510K,0.0
+1,02/15/2004,CellaVision DM96 Automatic Hematology Analyzer,Other,510K,0.0
+28,07/15/2017,QuantX,Radiology,DEN,0.0
+91,02/15/2019,AI Rad Companion (Engine),Radiology,510K,0.0
+11,03/15/2021,Aquilion�ONE�(TSX306A/3)�V10.4�with�Spectral�Imaging�System,Radiology,510K,0.0
+12,03/15/2021,VBrain,Radiology,510K,1.0
+13,03/15/2021,syngo.CT Lung CAD (Version VD20),Radiology,510K,2.0
+22,03/15/2021,SIS System (Version 5.1.0),Radiology,510K,3.0
+23,03/15/2021,Viz ICH,Radiology,510K,4.0
+192,03/15/2021,Oncospace,Radiology,510K,5.0
+193,03/15/2021,"Optellum Virtual Nodule Clinic, Optellum software, Optellum platform",Radiology,510K,6.0
+202,03/15/2021,Imbio RV/LV Software,Radiology,510K,7.0
+203,03/15/2021,"Vantage Galan 3T, MRT-3020, V6.0 with AiCE Reconstruction Processing Unit for MR",Radiology,510K,8.0
+205,03/15/2021,MaxFOV 2,Radiology,510K,9.0
+43,11/15/2017,"Rooti Rx ECG Event Recorder, Rooti Link APP Software",Cardiovascular,510K,0.0
+153,10/15/2020,AutoContour,Radiology,510K,0.0
+188,10/15/2020,WRDensity by Whiterabbit.ai,Radiology,510K,1.0
+191,10/15/2020,Cleerly Labs v2.0,Radiology,510K,2.0
+8,10/15/2020,"Stethee Pro 1, Stethee Pro Software System",Cardiovascular,510K,3.0
+155,10/15/2020,"CellaVision DC-1, CellaVision DC-1 PPA",Other,510K,4.0
+178,10/15/2020,X100 with Full Field Peripheral Blood Smear (PBS) Application,Other,510K,5.0
+189,10/15/2020,"LensHooke X1 PRO Semen Quality Analyzer, LensHooke X1 PRO SE Semen Quality Analyzer",Other,510K,6.0
+33,09/15/2018,Irregular Rhythm Notification Feature,Cardiovascular,DEN,0.0
+34,09/15/2018,ECG App,Cardiovascular,DEN,1.0
+57,09/15/2018,FibriCheck,Cardiovascular,510K,2.0
+66,09/15/2018,RightEye Vision System,Other,510K,3.0
+38,07/15/2016,Steth IO,Cardiovascular,510K,0.0
+143,11/15/2020,"FastStroke, CT Perfusion 4D",Radiology,510K,0.0
+146,11/15/2020,PROView,Radiology,510K,1.0
+149,11/15/2020,AI-Rad Companion Organs RT,Radiology,510K,2.0
+166,11/15/2020,HALO,Radiology,510K,3.0
+172,11/15/2020,Genius AI Detection,Radiology,510K,4.0
+201,11/15/2020,Revolution Ascend,Radiology,510K,5.0
+64,07/15/2018,Workflow Box,Radiology,510K,0.0
+37,03/15/2016,QbCheck,Other,510K,0.0
+144,06/15/2020,BriefCase,Radiology,510K,0.0
+152,06/15/2020,LVivo Software Application,Radiology,510K,1.0
+163,06/15/2020,Rapid ASPECTS,Radiology,510K,2.0
+165,06/15/2020,CINA,Radiology,510K,3.0
+168,06/15/2020,qER,Radiology,510K,4.0
+170,06/15/2020,Auto 3D Bladder Volume Tool,Radiology,510K,5.0
+0,08/15/2013,Vitek MS,Other,DEN,0.0
+7,01/15/2014,Ysio Max,Radiology,510K,0.0
+71,10/15/2018,Arterys MICA,Radiology,510K,0.0
+73,10/15/2018,Accipiolx,Radiology,510K,1.0
+81,07/15/2019,DeepCT,Radiology,510K,0.0
+82,07/15/2019,Aquilion Precision (TSX-304A/1 and /2) V8.8 with AiCE,Radiology,510K,1.0
+90,07/15/2019,AI-Rad Companion (Pulmonary),Radiology,510K,2.0
+101,07/15/2019,Koios DS for Breast,Radiology,510K,3.0
+109,07/15/2019,RayCare 2.3,Radiology,510K,4.0
+94,07/15/2019,physIQ Heart Rhythm and Respiratory Module,Cardiovascular,510K,5.0
+107,07/15/2019,"Wearable Device, Wearable Package",Cardiovascular,510K,6.0
+190,02/15/2021,TruPlan,Radiology,510K,0.0
+198,02/15/2021,NinesMeasure,Radiology,510K,1.0
+200,02/15/2021,"Synapse 3D, Synapse 3D Base Tools v6.1",Radiology,510K,2.0
+206,02/15/2021,LVivo Software Application,Radiology,510K,3.0
+27,11/15/2014,BrainScope Ahead 100,Other,DEN,0.0
+119,04/15/2020,CuraRad-ICH,Radiology,510K,0.0
+145,04/15/2020,AIMI-Triage CXR PTX,Radiology,510K,1.0
+147,04/15/2020,NinesAI,Radiology,510K,2.0
+162,04/15/2020,Caption Guidance,Radiology,510K,3.0
+62,11/15/2018,Vitrea CT Brain Perfusion,Radiology,510K,0.0
+65,11/15/2018,Transpara,Radiology,510K,1.0
+69,11/15/2018,icobrain,Radiology,510K,2.0
+74,11/15/2018,FerriSmart Analysis System,Radiology,510K,3.0
+75,11/15/2018,SubtlePET,Radiology,510K,4.0
+80,11/15/2018,"NvisionVLE Imaging System, NvisionVLE Optical Probe, NvisionVLE Inflation System",Radiology,510K,5.0
+59,11/15/2018,AI-ECG Platform,Cardiovascular,510K,6.0
+58,11/15/2018,"LensHooke X1 Pro Semen Quality Analyzer, LensHooke X1 Semen Quality Analyzer",Other,510K,7.0
+111,12/15/2019,QLAB Advanced Quantification Software,Radiology,510K,0.0
+120,12/15/2019,Transpara,Radiology,510K,1.0
+123,12/15/2019,BriefCase,Radiology,510K,2.0
+134,12/15/2019,Deep Learning Image Reconstruction,Radiology,510K,3.0
+42,01/15/2017,Arterys Cardio DL,Radiology,510K,0.0
+129,05/15/2020,HealthVCF,Radiology,510K,0.0
+88,01/15/2019,SIGNA Premier,Radiology,510K,0.0
+78,01/15/2019,Study Watch,Cardiovascular,510K,1.0
+41,02/15/2017,SIS Software,Radiology,510K,0.0
+207,11/15/2016,QVCAD System,Radiology,PMA,0.0
+103,11/15/2019,Cleerly Labs,Radiology,510K,0.0
+105,11/15/2019,EchoGo Core,Radiology,510K,1.0
+108,11/15/2019,RSI-MRI+,Radiology,510K,2.0
+118,11/15/2019,KOALA,Radiology,510K,3.0
+122,11/15/2019,HealthCXR,Radiology,510K,4.0
+50,09/15/2017,BladderScan Prime PLUS System,Radiology,510K,0.0
+133,01/15/2020,MRCAT brain,Radiology,510K,0.0
+116,01/15/2020,Eko Analysis Software,Cardiovascular,510K,1.0
+48,08/15/2017,Advanced RBC Application,Other,510K,0.0
+31,04/15/2018,IDx-DR,Other,DEN,0.0
+10,06/15/2021,Qmenta Care Platform Family,Radiology,510K,0.0
+17,06/15/2021,Precise Position,Radiology,510K,1.0
+25,06/15/2021,"LINQ II Insertable Cardiac Monitor, Zelda AI ECG Classification System",Cardiovascular,510K,2.0
+20,06/15/2021,IDx-DR,Other,510K,3.0
+98,05/15/2019,HealthPNX,Radiology,510K,0.0
+104,05/15/2019,BriefCase,Radiology,510K,1.0
+51,06/15/2018,HealthCCS,Radiology,510K,0.0
+55,06/15/2018,EchoMD Automated Ejection Fraction Software,Radiology,510K,1.0
+56,06/15/2018,LungQ Software,Radiology,510K,2.0
+29,06/15/2018,DreaMed Advisor Pro,Other,DEN,3.0
+83,03/15/2019,SIS Software version 3.3.0,Radiology,510K,0.0
+93,03/15/2019,cmTriage,Radiology,510K,1.0
+63,03/15/2019,Loop System,Cardiovascular,510K,2.0
+67,03/15/2019,KardiaAI,Cardiovascular,510K,3.0
+76,03/15/2019,RhythmAnalytics,Cardiovascular,510K,4.0
+154,09/15/2020,RayStation,Radiology,510K,0.0
+158,09/15/2020,Vivid iq,Radiology,510K,1.0
+164,09/15/2020,"Vivid T8, Vivid T9",Radiology,510K,2.0
+175,09/15/2020,Xeleris V Processing and Review Systems,Radiology,510K,3.0
+180,09/15/2020,AVA (Augmented Vascular Analysis),Radiology,510K,4.0
+187,09/15/2020,Caption Guidance,Radiology,510K,5.0
+177,09/15/2020,VX1,Cardiovascular,510K,6.0
+125,09/15/2020,"Accelerate Pheno System, Accelerate PhenoTest BC Kit",Other,510K,7.0
+89,09/15/2019,AI-Rad Companion (Cardiovascular),Radiology,510K,0.0
+112,09/15/2019,SubtleMR,Radiology,510K,1.0
+117,09/15/2019,Syngo.Via RT Image Suite,Radiology,510K,2.0
+121,09/15/2019,SIS Software Version 3.6.0,Radiology,510K,3.0
+102,09/15/2019,BrainScope TBI,Other,510K,4.0
+130,07/15/2020,Deep Recon,Radiology,510K,0.0
+132,07/15/2020,"Vantage Orian 1.5T, MRT-1550, V6.0 with AiCE Reconstruction Processing Unit for MR",Radiology,510K,1.0
+138,07/15/2020,Contour ProtegeAI,Radiology,510K,2.0
+142,07/15/2020,AI-Rad Companion Prostate MR,Radiology,510K,3.0
+148,07/15/2020,FractureDetect (FX),Radiology,510K,4.0
+156,07/15/2020,Caption Interpretation Automated Ejection Fraction Software,Radiology,510K,5.0
+161,07/15/2020,Vivid E80/ Vivid E90/ Vivid E95,Radiology,510K,6.0
+167,07/15/2020,HealthMammo,Radiology,510K,7.0
+169,07/15/2020,Rapid LVO,Radiology,510K,8.0
+84,06/15/2019,Aquilion ONE (TSX-305A/6) V8.9 with AiCE,Radiology,510K,0.0
+95,06/15/2019,ClariCT.AI,Radiology,510K,1.0
+99,06/15/2019,RayStation,Radiology,510K,2.0
+100,06/15/2019,HealthICH,Radiology,510K,3.0
+106,06/15/2019,CLARUS,Other,510K,4.0
+40,03/15/2017,EnsoSleep,Other,510K,0.0
+61,08/15/2018,BriefCase,Radiology,510K,0.0
+113,10/15/2019,CS-series-FP Radiographic / Fluoroscopic Systems with Optional CA-100S / FluoroShield� (ROI Assembly),Radiology,510K,0.0
+115,10/15/2019,ProFound AI Software V2.1,Radiology,510K,1.0
+35,02/15/2020,Caption Guidance,Radiology,DEN,0.0
+110,02/15/2020,Red Dot,Radiology,510K,1.0
+114,02/15/2020,AccuContour,Radiology,510K,2.0
+126,02/15/2020,Aquilion ONE (TSX-306A/3) V10.0 with Spectral Imaging System,Radiology,510K,3.0
+127,02/15/2020,Aquilion Prime SP (TSX-303B8) V10.2 with AiCE-i,Radiology,510K,4.0
+5,05/15/2012,Tissue of Origin Test Kit FFPE,Other,510K,0.0
+9,04/15/2021,Eclipse II with Smart Noise Cancellation,Radiology,510K,0.0
+14,04/15/2021,Cartesion Prime (PCD-1000A/3) V10.8,Radiology,510K,1.0
+15,04/15/2021,AI Segmentation,Radiology,510K,2.0
+16,04/15/2021,MEDO-Thyroid,Radiology,510K,3.0
+18,04/15/2021,Saige-Q,Radiology,510K,4.0
+19,04/15/2021,Automatic Anatomy Recognition (AAR),Radiology,510K,5.0
+21,04/15/2021,HYPER AiR,Radiology,510K,6.0
+26,04/15/2021,Preview Shoulder,Radiology,510K,7.0
+30,02/15/2018,ContaCT,Radiology,DEN,0.0
+44,02/15/2018,DM-Density,Radiology,510K,1.0
+52,12/15/2017,Radiomics App v1.0,Radiology,510K,0.0
+49,12/15/2017,BioFlux Device,Cardiovascular,510K,1.0
+124,03/15/2020,"Vantage Galan 3T, MRT-3020, V6.0 with AiCE Reconstruction Processing Unit for MR",Radiology,510K,0.0
+128,03/15/2020,MammoScreen,Radiology,510K,1.0
+131,03/15/2020,Rapid ICH,Radiology,510K,2.0
+136,03/15/2020,syngo.CT Lung CAD,Radiology,510K,3.0
+137,03/15/2020,Transpara,Radiology,510K,4.0
+139,03/15/2020,Al-Rad Companion (Musculoskeletal),Radiology,510K,5.0
+141,03/15/2020,Hepatic VCAR,Radiology,510K,6.0
+150,03/15/2020,Viz ICH,Radiology,510K,7.0
+151,03/15/2020,AI-ECG Tracker,Cardiovascular,510K,8.0
+24,05/15/2021,CINA CHEST,Radiology,510K,0.0
+36,12/15/2012,CLEARREAD +CONFIRM,Radiology,510K,0.0
+135,08/15/2020,HYPER DLR,Radiology,510K,0.0
+159,08/15/2020,AVIEW,Radiology,510K,1.0
+171,08/15/2020,VIDAvision,Radiology,510K,2.0
+173,08/15/2020,BriefCase,Radiology,510K,3.0
+176,08/15/2020,Limbus Contour,Radiology,510K,4.0
+179,08/15/2020,Accipiolx,Radiology,510K,5.0
+182,08/15/2020,Syngo.via RT Image Suite,Radiology,510K,6.0
+184,08/15/2020,TOMTEC-ARENA,Radiology,510K,7.0
+157,08/15/2020,EyeArt,Other,510K,8.0
+39,05/15/2017,AmCAD-US,Radiology,510K,0.0
+46,06/15/2017,syngo Application Software,Radiology,510K,0.0
+32,05/15/2018,OsteoDetect,Radiology,DEN,0.0
+60,05/15/2018,NeuralBot,Radiology,510K,1.0
+140,01/15/2021,uAI EasyTriage-Rib,Radiology,510K,0.0
+181,01/15/2021,Visage Breast Density,Radiology,510K,1.0
+186,01/15/2021,Aquilion Lightning (TSX-036A/7) V10.2 with AiCE-i,Radiology,510K,2.0
+194,01/15/2021,BrainInsight,Radiology,510K,3.0
+196,01/15/2021,ART-Plan,Radiology,510K,4.0
+197,01/15/2021,"Vantage Orian 1.5T, MRT-1550, V6.0",Radiology,510K,5.0
+160,01/15/2021,CLEWICU System (ClewICUServer and ClewICUnitor),Cardiovascular,510K,6.0
+208,01/15/2021,Imagio Breast Imaging System,Other,PMA,7.0
+2,12/15/2008,CellaVision DM96 with the body fluid application,Other,510K,0.0
+53,01/15/2018,Arterys Oncology DL,Radiology,510K,0.0
+47,01/15/2018,WAVE Clinical Platform,Cardiovascular,510K,1.0
+4,09/15/2011,CellaVision� DM1200 with the body fluid application,Other,510K,0.0
+72,12/15/2018,iSchemaView RAPID,Radiology,510K,0.0
+77,12/15/2018,PowerLook Tomo Detection V2 Software,Radiology,510K,1.0
+79,12/15/2018,Quantib ND,Radiology,510K,2.0
+54,12/15/2018,reSET-O,Other,510K,3.0
+68,12/15/2018,Embrace,Other,510K,4.0
+86,04/15/2019,Deep Learning Image Reconstruction,Radiology,510K,0.0
+87,04/15/2019,Bone VCAR (BVCAR),Radiology,510K,1.0
+97,04/15/2019,BriefCase,Radiology,510K,2.0
+70,04/15/2019,eMurmur ID,Cardiovascular,510K,3.0
+45,04/15/2017,Carestream Vue PACS,Radiology,510K,0.0
+85,08/15/2019,Critical Care Suite,Radiology,510K,0.0
+96,08/15/2019,D2P,Radiology,510K,1.0
+92,08/15/2019,Biovitals Analytics Engine,Cardiovascular,510K,2.0
