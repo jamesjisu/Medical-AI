@@ -289,6 +289,7 @@ function makeTimelineBinViz(divID, bintype, maxHeight) {
             .attr('transform', 'translate(45,' + (4*(2 * padding) / 3 + 0.3*padding/3) + ')')
             .attr('alignment-baseline', 'middle')
             .attr('text-anchor', 'left')
+            .attr('class', 'collesslabel')
             .attr('fill', 'rgb(56, 112, 158)')
             .text('510K');
     
@@ -296,12 +297,14 @@ function makeTimelineBinViz(divID, bintype, maxHeight) {
             .attr('transform', 'translate(45,' + (5* (2 * padding) / 3 + 0.3*padding/3) + ')')
             .attr('alignment-baseline', 'middle')
             .attr('text-anchor', 'left')
+            .attr('class', 'collesslabel')
             .attr('fill', 'rgb(187, 64, 64)')
             .text('De Novo');
     
         legend.append('text')
             .attr('transform', 'translate(45,' + (6*(2 * padding)/3 + 0.3*padding/3) + ')')
             .attr('alignment-baseline', 'middle')
+            .attr('class', 'collesslabel')
             .attr('text-anchor', 'left')
             .attr('fill', 'rgb(68, 187, 64)')
             .text('PMA');

@@ -17,6 +17,7 @@ title: Data Overview
 <div id="specialtyBarChart"></div>
 <h4>Which key terms indicate AI devices?</h4>
 <div id="keytermHeatMap"></div>
+<p>The YAML can be found in <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/tree/gh-pages/_data" target="_blank">_data/bar-chart.yaml</a>, but is transformed into the JSON needed for this chart, using <a href="https://github.com/kinlane/d3-js-using-yaml-jekyll/blob/gh-pages/data/bar-chart.json" target="_blank">/data/bar-chart.json</a>. You can fork the repo, and make work with your own data, and keep the YAML as the central, machine readable source. My objective is to decouple the data source from the visualiation, and leverage the readability of YAML + Jekyll + Github Pages for making data accessible.</p>
 <style>
 
 /* Bar Chart */
@@ -57,7 +58,7 @@ title: Data Overview
 }
 
 .axis {
-  font: 12px sans-serif;
+  font: 18px sans-serif;
 }
 
 .label {
@@ -74,12 +75,14 @@ title: Data Overview
 .axis text{
     fill: #aaa
 }
-
-/* .label {
-  font: 18px sans-serif;
+.collesslabel {
+  font: 20px sans-serif;
+}
+/* 
+.label {
+  font: 20px sans-serif;
   fill: rgb(0, 0, 0)
 }
-
 .axis path,
 .axis line {
   fill: none;
