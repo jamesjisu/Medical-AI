@@ -5,6 +5,7 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
+  {% include base.html %}
   <script src="{{ "/assets/javascript/bootstrap/jquery.min.js" | relative_url }}"></script>
   <script src="{{ "/assets/javascript/bootstrap/bootstrap.bundle.min.js" | relative_url }}"></script>
   <!-- JQuery -->
@@ -14,5 +15,5 @@
   <script src="https://s3.amazonaws.com/kinlane-productions/js/utilities.js" type="text/javascript"></script> -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> 
-  <script src="/assets/javascript/visualizations.js"></script>
+  <script src="{{ base }}/assets/javascript/visualizations.js"></script>
 </head>
