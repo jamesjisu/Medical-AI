@@ -159,7 +159,7 @@ function makeTimelineBinViz(divID, bintype, maxHeight) {
 
 
 
-    d3.csv('/data/timeline_' + bintype + '_data.csv', function(error, data) {
+    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/timeline_' + bintype + '_data.csv', function(error, data) {
         if (error) {throw error};
         var yvals = [];
         for (i = 0; i < data.length; i++) {
@@ -341,7 +341,7 @@ function makeWorldMapViz(divID) {
 
     var totalScale = d3.scaleLinear().domain([0,Math.log10(113)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
     
-    d3.json("/data/maps.json", function(error, uWorld) {
+    d3.json("https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/map_dat_INTL.json", function(error, uWorld) {
     if (error) throw error;
         mapSVG.selectAll('path')
             .data(uWorld.features)
@@ -380,7 +380,7 @@ function makeUSMap(divID) {
 
     var totalScale = d3.scaleLinear().domain([0,Math.log10(29)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
  
-    d3.json('/data/map_US.json', function(error, uState) {
+    d3.json('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/map_dat_US.json', function(error, uState) {
         if (error) throw error;
             svg.selectAll('path')
                 .data(uState.features)
@@ -390,7 +390,7 @@ function makeUSMap(divID) {
                 .attr('class', 'state')
                 .style("fill", function(d) {
                     if(d.properties.hasOwnProperty("devices")) {
-                        return totalScale(Math.log10(d["properties"]["devices"][9]+1));
+                        return totalScale(Math.log10(d["properties"]["devices"]+1));
                     }
                     else {
                         return totalScale(0); 
@@ -416,14 +416,14 @@ function makeBarChart(divID) {
         .range([padding, width - padding])
         .padding(0.2)
 
-    var yScale = d3.scaleLinear().range([height - padding, padding])
+    var yScale = d3.scaleLinear().range([height - 3 * padding, padding])
     
 
     var svg = d3.select('#' + divID).append('svg')
         .attr("width", width)
         .attr("height", height);
 
-    d3.json('/data/specialties_jiang.json', function(error, data) {
+    d3.json('https://raw.githubusercontent.com/jamesjisu/Medical-AI/master/data/specialties_jiang.json', function(error, data) {
         if (error) {throw error;}
 
         console.log(data)
@@ -431,15 +431,21 @@ function makeBarChart(divID) {
         yScale.domain([0,d3.max(data, function(d) {return d.number})])
 
         svg.append('g')
-            .attr("transform", "translate(0," + (height - padding) + ")")
+            .attr("transform", "translate(0," + (height - 3 * padding) + ")")
             .attr("class", "axis")
-            .call(d3.axisBottom(xScale))
+            .call(d3.axisBottom(xScale).tickSizeOuter(0))
+            .selectAll("text")
+                .attr("y", 10)
+                .attr("x", -5)
+                .attr("dy", ".35em")
+                .attr("transform", "rotate(-30)")
+                .style("text-anchor", "end");
 
         
         svg.append('g')
             .attr("transform", "translate(" + padding + ",0)")
             .attr("class", "axis")
-            .call(d3.axisLeft(yScale))
+            .call(d3.axisLeft(yScale).tickSizeOuter(0))
 
         svg.selectAll(".bar")
             .data(data)
@@ -448,7 +454,7 @@ function makeBarChart(divID) {
             .attr("x", function(d) { return xScale(d.specialty)})
             .attr("y", function(d) { return yScale(d.number)})
             .attr("width", xScale.bandwidth())
-            .attr("height", function(d) { return height - padding - yScale(d.number)})
+            .attr("height", function(d) { return height - 3 * padding - yScale(d.number)})
             .on("mouseover", onMouseOver)
             .on("mousemove", onMouseMove)
             .on("mouseout", onMouseOut)
@@ -610,7 +616,7 @@ function makeHeatMap(divID) {
         .domain([0,209])
         .range(['black', 'blue']);
 
-    d3.csv('/data/temp.csv', function(data) {
+    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/temp.csv', function(data) {
         svg.selectAll()
             .data(data, function(d) { return d.group + ': ' + d.variable;})
             .enter()
@@ -648,7 +654,8 @@ function onMouseOver(d, i) {
     } 
     else if (elementClass == "state") {
         if(d.properties.hasOwnProperty("devices")) {
-            console.log('hi')
+            tooltip.html(d["properties"]["name"] + "<br />" + 
+                "Devices: " + d["properties"]["devices"])
         }
         else{
             console.log('no data')
