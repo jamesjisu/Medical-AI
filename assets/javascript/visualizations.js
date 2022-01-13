@@ -159,7 +159,7 @@ function makeTimelineBinViz(divID, bintype, maxHeight) {
 
 
 
-    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/timeline_' + bintype + '_data.csv', function(error, data) {
+    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/master/data/timeline_' + bintype + '_data.csv', function(error, data) {
         if (error) {throw error};
         var yvals = [];
         for (i = 0; i < data.length; i++) {
@@ -341,7 +341,7 @@ function makeWorldMapViz(divID) {
 
     var totalScale = d3.scaleLinear().domain([0,Math.log10(113)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
     
-    d3.json("https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/map_dat_INTL.json", function(error, uWorld) {
+    d3.json("https://raw.githubusercontent.com/jamesjisu/Medical-AI/master/data/map_dat_INTL.json", function(error, uWorld) {
     if (error) throw error;
         mapSVG.selectAll('path')
             .data(uWorld.features)
@@ -380,7 +380,7 @@ function makeUSMap(divID) {
 
     var totalScale = d3.scaleLinear().domain([0,Math.log10(29)]).range(['rgb(97, 96, 96)', 'rgb(56, 112, 158)']);
  
-    d3.json('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/map_dat_US.json', function(error, uState) {
+    d3.json('https://raw.githubusercontent.com/jamesjisu/Medical-AI/master/data/map_dat_US.json', function(error, uState) {
         if (error) throw error;
             svg.selectAll('path')
                 .data(uState.features)
@@ -616,7 +616,7 @@ function makeHeatMap(divID) {
         .domain([0,209])
         .range(['black', 'blue']);
 
-    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/data/temp.csv', function(data) {
+    d3.csv('https://raw.githubusercontent.com/jamesjisu/Medical-AI/master/data/temp.csv', function(data) {
         svg.selectAll()
             .data(data, function(d) { return d.group + ': ' + d.variable;})
             .enter()
