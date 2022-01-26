@@ -1,11 +1,9 @@
 [
-    {"specialty": "Missing", "number": 2},
-    {"specialty": "Clinical Chemistry", "number": 1},
     {"specialty": "Cardiovascular", "number": 22},
     {"specialty": "Hematology", "number": 9},
     {"specialty": "Microbiology", "number": 3},
     {"specialty": "Neurology", "number": 6},
     {"specialty": "Ophthalmic", "number": 4},
     {"specialty": "Radiology", "number": 161},
-    {"specialty": "Clinical Toxicology", "number": 1}
+    {"specialty": "Other", "number": 4}
 ]
