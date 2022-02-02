@@ -437,7 +437,7 @@ function makeBarChart(divID) {
             .selectAll("text")
                 .attr("y", 10)
                 .attr("x", -5)
-                .attr("dy", ".5em")
+                .attr("dy", "0.6em")
                 .attr("transform", "rotate(-30)")
                 .style("text-anchor", "end");
 
